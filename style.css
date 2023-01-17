@@ -26,6 +26,7 @@ header h1 {
   height: 15rem;
   color: black;
   border-radius: 20%;
+  flex-wrap: wrap;
 }
 
 .quadrado.rotate-center,
@@ -97,10 +98,16 @@ header h1 {
     transform: rotate(360deg);
   }
 }
+h4 {
+  color: white;
+  text-align: center;
+}
 
-.quadrado p {
-  background-color: white;
-  font-size: 5rem;
+input {
+  color: white;
+  border: 0;
+  border-bottom: 1px solid white;
+  text-align: center;
 }
 
 .botoes {

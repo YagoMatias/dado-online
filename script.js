@@ -1,6 +1,5 @@
 // ======================== DADOS ==============================
 const quadrado = document.querySelectorAll(".quadrado");
-const display = document.querySelector("p");
 const botaoRodar = document.querySelector(".rodar");
 const botaoZerar = document.querySelector(".zerar");
 
@@ -51,24 +50,28 @@ dropdown.addEventListener("click", abrirDropdown);
 // =======================QUANTIDADE DE DADOS =====================
 
 const itemLista = document.querySelector(".listaDropdown");
+const dadoContent = document.querySelectorAll(".dado-content");
 
 itemLista.addEventListener("click", (event) => {
   if (event.target.matches("p")) {
     const botao = event.target;
     const action = botao.dataset.action;
     if (!action) {
-      console.log("nada");
     } else if (action === "primeiro") {
-      quadrado[1].classList.remove("doisDados");
-      quadrado[2].classList.remove("tresDados");
+      dadoContent[1].classList.remove("doisDados");
+      dadoContent[2].classList.remove("tresDados");
       listaDropdown.classList.remove("aberto");
     } else if (action === "segundo") {
-      quadrado[1].classList.add("doisDados");
-      quadrado[2].classList.remove("tresDados");
+      dadoContent[1].classList.add("doisDados");
+      dadoContent[2].classList.remove("tresDados");
       listaDropdown.classList.remove("aberto");
     } else if (action === "terceiro") {
-      quadrado[2].classList.add("tresDados");
+      dadoContent[2].classList.add("tresDados");
+      dadoContent[1].classList.add("doisDados");
       listaDropdown.classList.remove("aberto");
     }
   }
+  quadrado.forEach((item) => {
+    item.classList.remove("rotate-center");
+  });
 });
