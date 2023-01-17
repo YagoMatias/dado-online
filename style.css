@@ -9,14 +9,15 @@ header h1 {
 
 .dado {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   gap: 5rem;
   margin: 1rem;
 }
 
-.quadrado {
+.quadrado,
+.quadrado2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +28,8 @@ header h1 {
   border-radius: 20%;
 }
 
-.quadrado.rotate-center {
+.quadrado.rotate-center,
+.quadrado2.rotate-center {
   -webkit-animation: rotate-center 0.6s ease-in-out both;
   animation: rotate-center 0.6s ease-in-out both;
 }
@@ -96,7 +98,7 @@ header h1 {
   }
 }
 
-p {
+.quadrado p {
   background-color: white;
   font-size: 5rem;
 }
@@ -123,4 +125,69 @@ button:hover {
 
 .rodar:disabled {
   background-color: #ccc;
+}
+/* ====================================================================== */
+
+.dado-box {
+  gap: 1rem;
+}
+
+.dado-box1 {
+  display: flex;
+  gap: 1rem;
+}
+
+.segundo {
+  display: none;
+}
+
+.segundo.doisDados {
+  display: block;
+}
+
+.terceiro {
+  display: none;
+}
+
+.terceiro.tresDados {
+  display: block;
+}
+
+.dropdown {
+  color: white;
+  height: 5rem;
+  margin: 1rem 0rem;
+}
+
+.dropdown h3 {
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.dropdown h3:hover {
+  background-color: white;
+  color: black;
+}
+
+.listaDropdown {
+  display: none;
+}
+
+.listaDropdown.aberto {
+  display: block;
+}
+
+p {
+  border: 1px solid white;
+  padding: 5px;
+  margin: 3px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+p:hover {
+  background-color: white;
+  color: black;
 }

@@ -15,15 +15,31 @@
   </header>
   <main>
     <section class="dado">
-      <div class="quadrado">
-        <p>
-        </p>
+      <div class="dado-box1">
+        <div class="quadrado primeiro">
+        </div>
+        <div class="quadrado segundo">
+        </div>
+        <div class="quadrado terceiro">
+        </div>
       </div>
-      <div class="botoes">
-        <button class="rodar">Rodar</button>
-        <button class="zerar">Zerar</button>
+
+      <div class="dado-box">
+        <div class="botoes">
+          <button class="rodar">Rodar</button>
+          <button class="zerar">Zerar</button>
+        </div>
+        <div class="dropdown">
+          <h3>Número de Dados ↴</h3>
+          <div class="listaDropdown">
+            <p data-action="primeiro">1 Dado</p>
+            <p data-action="segundo">2 Dados</p>
+            <p data-action="terceiro">3 Dados</p>
+          </div>
+        </div>
       </div>
     </section>
+
   </main>
   <script src="script.js"></script>
 </body>
