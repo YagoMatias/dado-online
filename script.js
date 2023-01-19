@@ -21,16 +21,75 @@ function rodar() {
     botaoRodar.setAttribute("disabled", "");
   });
   dadoContent.forEach((item) => {
-    if (item.classList.contains("doisDados")) {
-      if (sorteio.numero > sorteio.numero2) {
-        display.innerText = "1 ganhou";
-      } else if (sorteio.numero < sorteio.numero2) {
-        display.innerText = "2 ganhou";
-      } else if (sorteio.numero === sorteio.numero2) {
-        display.innerText = "empatou";
-      } else "";
-    } else if (item.classList.contains("tresDados")) {
+    function doisDados() {
+      dadoContent[1].classList.add("picles");
+      // if (item.classList.contains("picles")) {
+      //   if (sorteio.numero > sorteio.numero2) {
+      //     display.innerText = "1 ganhou";
+      //   } else if (sorteio.numero < sorteio.numero2) {
+      //     display.innerText = "2 ganhou";
+      //   } else if (sorteio.numero === sorteio.numero2) {
+      //     display.innerText = "empatou";
+      //   } else tresDados();
+      // }
     }
+    doisDados();
+    function tresDados() {
+      if (item.classList.contains("tresDados")) {
+        dadoContent[1].classList.remove("picles");
+        const maior = `${Math.max(
+          sorteio.numero,
+          sorteio.numero2,
+          sorteio.numero3
+        )}`;
+
+        if (
+          (sorteio.numero === sorteio.numero2) &
+          (sorteio.numero2 === sorteio.numero3)
+        ) {
+          display.innerText = "empate";
+        } else if (
+          (sorteio.numero === sorteio.numero2) &
+          (sorteio.numero2 > sorteio.numero3)
+        ) {
+          display.innerText = "empate";
+        } else if (sorteio.numero3 === sorteio.numero > sorteio.numero2) {
+          display.innerText = "empate";
+        } else if (sorteio.numero2 === sorteio.numero3 > sorteio.numero) {
+          display.innerText = "empate";
+        } else if (maior == sorteio.numero2) {
+          display.innerText = "2 ganhou";
+        } else if (maior == sorteio.numero3) {
+          display.innerText = "3 ganhou";
+        } else if (maior == sorteio.numero) {
+          display.innerText = "1 ganhou";
+        }
+
+        // if (sorteio.numero > (sorteio.numero2, sorteio.numero3)) {
+        //   display.innerText = `${Math.random(sorteio)}`;
+        // } else if (sorteio.numero2 > (sorteio.numero, sorteio.numero3)) {
+        //   // display.innerText = "2 ganhou";
+        //   display.innerText = `${Math.random(sorteio)}`;
+        // } else if (sorteio.numero3 > (sorteio.numero, sorteio.numero2)) {
+        //   // display.innerText = "3 ganhou";
+        //   display.innerText = `${Math.random(sorteio)}`;
+        // } else if (sorteio.numero === (sorteio.numero2, sorteio.numero3)) {
+        //   // display.innerText = "empate";
+        //   display.innerText = `${Math.random(sorteio)}`;
+        // } else if (sorteio.numero2 === (sorteio.numero, sorteio.numero3)) {
+        //   // display.innerText = "empate";
+        //   display.innerText = `${Math.random(sorteio)}`;
+        // } else if (sorteio.numero3 === (sorteio.numero2, sorteio.numero)) {
+        //   // display.innerText = "empate";
+        //   display.innerText = `${Math.random(
+        //     sorteio.numero,
+        //     sorteio.numero2,
+        //     sorteio.numero3
+        //   )}`;
+        // }
+      }
+    }
+    tresDados();
   });
 }
 function apagar() {
