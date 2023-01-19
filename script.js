@@ -2,6 +2,7 @@
 const quadrado = document.querySelectorAll(".quadrado");
 const botaoRodar = document.querySelector(".rodar");
 const botaoZerar = document.querySelector(".zerar");
+const display = document.querySelector(".display-content");
 
 function rodar() {
   const sorteio = {
@@ -9,6 +10,9 @@ function rodar() {
     numero2: (numeros2 = parseInt(Math.random() * (7 - 1) + 1)),
     numero3: (numeros2 = parseInt(Math.random() * (7 - 1) + 1)),
   };
+  // console.log(sorteio.numero);
+  // console.log(sorteio.numero2);
+  // console.log(sorteio.numero3);
   quadrado.forEach((item) => {
     quadrado[0].classList.add(`__${sorteio.numero}`);
     quadrado[1].classList.add(`__${sorteio.numero2}`);
@@ -16,8 +20,19 @@ function rodar() {
     item.classList.toggle("rotate-center");
     botaoRodar.setAttribute("disabled", "");
   });
+  dadoContent.forEach((item) => {
+    if (item.classList.contains("doisDados")) {
+      if (sorteio.numero > sorteio.numero2) {
+        display.innerText = "1 ganhou";
+      } else if (sorteio.numero < sorteio.numero2) {
+        display.innerText = "2 ganhou";
+      } else if (sorteio.numero === sorteio.numero2) {
+        display.innerText = "empatou";
+      } else "";
+    } else if (item.classList.contains("tresDados")) {
+    }
+  });
 }
-
 function apagar() {
   quadrado.forEach((item) => {
     item.classList.remove(
@@ -31,6 +46,7 @@ function apagar() {
     );
   });
   botaoRodar.removeAttribute("disabled", "");
+  display.innerText = "";
 }
 
 botaoRodar.addEventListener("click", rodar);
@@ -66,7 +82,7 @@ itemLista.addEventListener("click", (event) => {
       dadoContent[2].classList.remove("tresDados");
       listaDropdown.classList.remove("aberto");
     } else if (action === "terceiro") {
-      dadoContent[2].classList.add("tresDados");
+      dadoContent[2].classList.add("tresDados", "teste");
       dadoContent[1].classList.add("doisDados");
       listaDropdown.classList.remove("aberto");
     }

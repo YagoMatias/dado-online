@@ -198,3 +198,17 @@ p:hover {
   background-color: white;
   color: black;
 }
+
+.display-conteiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem;
+}
+
+.display-content {
+  border: 1px solid white;
+  width: 34rem;
+  height: 5rem;
+  color: white;
+}
